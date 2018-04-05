@@ -1,7 +1,35 @@
 /*Custom CSS Stylesheet*/
+*{
+  border: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.header {
+  text-align: center;
+  font-size: 32px;
+}
+
+body {
+  font-family: "Indie Flower", cursive;
+  background: #e2dfdf;
+  color: #f34a4a;
+}
 
 img {
+  opacity: 50%;
   height: 300px;
   width: 300px;
-  
+  background: transparent;
+
+
+}
+
+.numbermatch {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 30px;
 }

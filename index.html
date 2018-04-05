@@ -6,6 +6,8 @@
   <title>Crystals Collector</title>
   <!--Reset CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <!--Custom CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -14,46 +16,38 @@
 
   <div class="header">
     <h1>Crystals Collector!</h1>
-  </div>
-
-  <div class="instructions">
-    <p>You will be given a random number at the start of the game</p>
-    <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
-    </p>
-    <p>The value of each crystal is hidden from you until you click on it.
-      <br>
-      <p>Each time the game starts, the game will change the value of each crystal.</p>
+    <p>Click The Crystals to Collect Points and Match The Score!</p>
   </div>
 
 
   <section>
     <div class="numbermatch"></div>
+    <div class="totalscore"></div>
+    <div class="counter"></div>
+
     <div class="win/loss">
       <p>Wins:</p>
       <p>Losses:</p>
 
     </div>
-    <div id="images">
+    <div class="images">
       <!--Border radius-->
-      <button>
-         <img class="crystalOne" src="assets/images/crystal_one.jpg" alt="">
+      <button id="crystalOne" value="plus">
+         <img src="assets/images/crystal_one.jpg" alt="">
        </button>
-      <button>
-       <img class="crystalTwo" src="assets/images/crystal_two.jpg" alt="">
+      <button id="crystalTwo" value="plus">
+       <img src="assets/images/crystal_two.jpg" alt="">
      </button>
-      <button>
-       <img class="crystalThree" src="assets/images/crystal_three.jpg" alt="">
+      <button id="crystalThree" value="plus">
+       <img src="assets/images/crystal_three.jpg" alt="">
      </button>
-      <button>
-       <img class="crystalFour" src="assets/images/crystal_four.jpg" alt="">
+      <button id="crystalFour" value="plus">
+       <img src="assets/images/crystal_four.jpg" alt="">
      </button>
     </div>
   </section>
 
-  <section>
-    <div class="totalscore"></div>
-    <div class="counter"></div>
-  </section>
+
 
 </body>
 <!--jQuery CDN-->
