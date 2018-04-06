@@ -4,7 +4,7 @@ $(document).ready(function() {
   //----------------------------------
   var wins = 0;
   var losses = 0;
-  var numberToMatch = "";
+  var randomNumber = 0;
   var userScore = 0;
 
 
@@ -15,15 +15,44 @@ $(document).ready(function() {
   //Start game function
   function startGame() {
     userScore = 0;
-    $(".totalscore").text(userScore);
-    $(".totalscore").attr("value", userScore);
+    $("#totalScore").text(userScore);
+    $("#totalScore").attr("value", userScore);
+    randomNumber = null;
+    $("#randomNumber").text(randomNumber);
+    $("#randomNumber").attr("value", randomNumber);
+    crystalOne = null;
+    crystalTwo = null;
+    crystalThree = null;
+    crystalFour = null;
+
+
+    //Setting randomNumber for user to match
     var minNumber = 19;
     var maxNumber = 120;
     var randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
-    $(".numbermatch").append(randomNumber);
+    $("#randomNumber").append(randomNumber);
     console.log(randomNumber);
 
-    //Array of numberOptions
+    //Check for Wins/Losses
+    function checkStatus() {
+      if (+$("#totalScore").text() === +$("#randomNumber").text()) {
+        wins++;
+        document.getElementById("wins").innerHTML = wins;
+        alert("You Win!");
+        //Restart game
+        startGame();
+
+      };
+      if (+$("#totalScore").text() > +$("#randomNumber").text()) {
+        losses++;
+        document.getElementById("losses").innerHTML = losses;
+        alert("You Lose!");
+        //Restart game
+        startGame();
+      };
+    };
+
+    //Array of numberOptions for crystals
     var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
     //Setting value for crystalOne
@@ -46,77 +75,45 @@ $(document).ready(function() {
     $("#crystalFour").attr("value", crystalFour);
     console.log("%c Crystal Four: " + crystalFour, "background: yellow; color: white; display: block; padding 0 20% 0 20%;");
 
+    //function for adding values of crystals clicked and adding to the Score
+    //Crystal One
+    $("#crystalOne").on("click", function() {
+      var addOne = +$("#crystalOne").attr("value") + +$("#totalScore").attr("value");
+      $("#totalScore").text(addOne);
+      $("#totalScore").attr("value", addOne);
+      //Always checks for win or loss each time a crystal is clicked
+      checkStatus();
+    });
 
+    //Crystal Two
+    $("#crystalTwo").on("click", function() {
+      var addTwo = +$("#crystalTwo").attr("value") + +$("#totalScore").attr("value");
+      $("#totalScore").text(addTwo);
+      $("#totalScore").attr("value", addTwo);
+      //Always checks for win/loss each time a crystal is clicked
+      checkStatus();
+    });
 
-    //When crystal is clicked, use function to add value to totalScore variable
-    //Also grab image and display in html
-    //Also create a random number to match each time game begins(numberToMatch)
-    //$(".images").on("click", "#crystalOne, #crystalTwo, #crystalThree, #crystalFour", function() {
+    //Crystal Three
+    $("#crystalThree").on("click", function() {
+      var addThree = +$("#crystalThree").attr("value") + +$("#totalScore").attr("value");
+      $("#totalScore").text(addThree);
+      $("#totalScore").attr("value", addThree);
+      //Always checks for win/loss each time a crystal is clicked
+      checkStatus();
+    });
 
-
-
-      //function for adding values of crystals clicked in totalScore variable
-      //Clicking crystals
-      $("#crystalOne").on("click", function() {
-        var addOne = +$("#crystalOne").attr("value") + +$(".totalscore").attr("value");
-        $(".totalscore").text(addOne);
-        $(".totalscore").attr("value", addOne);
-
-      });
-
-      $("#crystalTwo").on("click", function() {
-        var addTwo = +$("#crystalTwo").attr("value") + +$(".totalscore").attr("value");
-        $(".totalscore").text(addTwo);
-        $(".totalscore").attr("value", addTwo);
-      });
-
-      $("#crystalThree").on("click", function() {
-        var addThree = +$("#crystalThree").attr("value") + +$(".totalscore").attr("value");
-        $(".totalscore").text(addThree);
-        $(".totalscore").attr("value", addThree);
-      });
-
-      $("#crystalFour").on("click", function() {
-        var addFour = +$("#crystalFour").attr("value") + +$(".totalscore").attr("value");
-        $(".totalscore").text(addFour);
-        $("totalscore").attr("value", addFour);
-      });
-
-      //if ($("#crystalTwo").attr("value") === "plus") {
-        //var add2 = userScore + crystalTwo;
-        //$(".counter").append(add + add2);
-        //console.log(add2);
-      //}
-
-
-
-
-      //if crystalOne is clicked and is equal to numberToMatch,
-      //alert you win
-      //wins++
-      //clear totalScore
-      //reset crystal values
-
-      //do the above code for crystalsTwo, crystalThree, and crystalFour
-
-      //if totalScore > numberToMatch,
-      //alert you lose
-      //losses--
-      //run startGame function
-
-
-
-
-
-
+    //Crystal Four
+    $("#crystalFour").on("click", function() {
+      var addFour = +$("#crystalFour").attr("value") + +$("#totalScore").attr("value");
+      $("#totalScore").text(addFour);
+      $("#totalScore").attr("value", addFour);
+      //Always checks for win/loss each time a crystal is clicked
+      checkStatus();
+    });
   };
+  //EXECUTION PHASE
+  //------------------------------------
 
   startGame();
 });
-
-
-
-
-
-//EXECUTION PHASE
-//------------------------------------

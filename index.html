@@ -13,45 +13,44 @@
 </head>
 
 <body>
-
-  <div class="header">
-    <h1>Crystals Collector!</h1>
-    <p>Click The Crystals to Collect Points and Match The Score!</p>
-  </div>
-
-
-  <section>
-    <div class="numbermatch"></div>
-    <div class="totalscore"></div>
-    <div class="counter"></div>
-
-    <div class="win/loss">
-      <p>Wins:</p>
-      <p>Losses:</p>
-
+  <div class="wrapper">
+    <div class="header">
+      <h1>Crystals Collector!</h1>
+      <p>Click The Crystals to Collect Points and Match The Score!</p>
     </div>
-    <div class="images">
-      <!--Border radius-->
-      <button id="crystalOne" value="plus">
-         <img src="assets/images/crystal_one.jpg" alt="">
-       </button>
-      <button id="crystalTwo" value="plus">
-       <img src="assets/images/crystal_two.jpg" alt="">
-     </button>
-      <button id="crystalThree" value="plus">
-       <img src="assets/images/crystal_three.jpg" alt="">
-     </button>
-      <button id="crystalFour" value="plus">
-       <img src="assets/images/crystal_four.jpg" alt="">
-     </button>
-    </div>
-  </section>
 
 
+    <div class="container">
+      <div class="game">
+        <section class="userInfo">
+          <h2 class="variable">Match:
+        <p id="randomNumber"></p>
+      </h2>
+          <h2 class="variable">Score:
+        <p id="totalScore" value="0">0</p>
+      </h2>
+          <h2 class="variable">Wins:
+        <p id=wins>0</p>
+      </h2>
+          <h2 class="variable">Losses:
+        <p id=losses>0</p>
+      </h2>
+        </section>
+      </div>
+
+      <div class="images">
+        <!--Border radius-->
+        <input id="crystalOne" value="plus" type="image" src="assets/images/crystal_one.jpg" alt=""></input>
+        <input id="crystalTwo" value="plus" type="image" src="assets/images/crystal_two.jpg" alt=""></input>
+        <input id="crystalThree" value="plus" type="image" src="assets/images/crystal_three.jpg" alt=""></input>
+        <input id="crystalFour" value="plus" type="image" src="assets/images/crystal_four.jpg" alt=""></input>
+      </div>
 
 </body>
+
 <!--jQuery CDN-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!--JavaScript-->
 <script src="assets/javascript/game.js"></script>
+
 </html>
