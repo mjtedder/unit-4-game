@@ -1,5 +1,37 @@
 /*Custom CSS Stylesheet*/
 
+body {
+  font-family: "Indie Flower", cursive;
+  background-color: #e2dcdc;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+  background-color: inherit;
+}
+
+h2 {
+  font-size: 30px;
+  background-color: teal;
+}
+
+#instructions {
+  padding: 0px 0px 20px 0px;
+  text-align: center;
+  font-size: 30px;
+}
+
+section {
+  text-align: center;
+
+}
+
+.images {
+  text-align: center;
+}
+
 input {
   height: 200px;
   width: 200px;

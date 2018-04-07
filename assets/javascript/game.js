@@ -11,12 +11,32 @@ $(document).ready(function() {
 
   //ASSIGN FUNCTIONS
   //------------------------------------
+  //Check for Wins/Losses
+  function checkStatus() {
+    if (+$("#totalScore").text() === +$("#randomNumber").text()) {
+      wins++;
+      document.getElementById("wins").innerHTML = wins;
+      alert("You Win!");
+      //Restart game
+      startGame();
+
+    };
+    if (+$("#totalScore").text() > +$("#randomNumber").text()) {
+      losses++;
+      document.getElementById("losses").innerHTML = losses;
+      alert("You Lose!");
+      //Restart game
+      startGame();
+    };
+  };
+
 
   //Start game function
   function startGame() {
     userScore = 0;
     $("#totalScore").text(userScore);
     $("#totalScore").attr("value", userScore);
+    console.log(userScore)
     randomNumber = null;
     $("#randomNumber").text(randomNumber);
     $("#randomNumber").attr("value", randomNumber);
@@ -33,24 +53,7 @@ $(document).ready(function() {
     $("#randomNumber").append(randomNumber);
     console.log(randomNumber);
 
-    //Check for Wins/Losses
-    function checkStatus() {
-      if (+$("#totalScore").text() === +$("#randomNumber").text()) {
-        wins++;
-        document.getElementById("wins").innerHTML = wins;
-        alert("You Win!");
-        //Restart game
-        startGame();
 
-      };
-      if (+$("#totalScore").text() > +$("#randomNumber").text()) {
-        losses++;
-        document.getElementById("losses").innerHTML = losses;
-        alert("You Lose!");
-        //Restart game
-        startGame();
-      };
-    };
 
     //Array of numberOptions for crystals
     var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -75,6 +78,7 @@ $(document).ready(function() {
     $("#crystalFour").attr("value", crystalFour);
     console.log("%c Crystal Four: " + crystalFour, "background: yellow; color: white; display: block; padding 0 20% 0 20%;");
 
+  };
     //function for adding values of crystals clicked and adding to the Score
     //Crystal One
     $("#crystalOne").on("click", function() {
@@ -111,7 +115,7 @@ $(document).ready(function() {
       //Always checks for win/loss each time a crystal is clicked
       checkStatus();
     });
-  };
+
   //EXECUTION PHASE
   //------------------------------------
 
